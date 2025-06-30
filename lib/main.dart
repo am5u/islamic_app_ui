@@ -5,6 +5,7 @@ import 'package:islamicapp_ui/core/theme/theme.dart';
 import 'package:islamicapp_ui/layout.dart';
 import 'package:islamicapp_ui/modules/hadeth/hadeth.dart';
 import 'package:islamicapp_ui/modules/quran/quran.dart';
+import 'package:islamicapp_ui/modules/quran/sura/sura.dart';
 import 'package:islamicapp_ui/modules/radio/radio.dart';
 import 'package:islamicapp_ui/modules/sepha/sepha.dart';
 import 'package:islamicapp_ui/modules/splash/splash_screen.dart';
@@ -13,7 +14,10 @@ import 'package:islamicapp_ui/modules/time/time.dart';
 void main() {
  
   
-  runApp(  const MyApp());
+  runApp(  
+
+  
+    const MyApp())  ;
 }
 
 class MyApp extends StatelessWidget {
@@ -34,6 +38,7 @@ initialRoute: SplashScreen.routName,
     SephaScreen.routName:(context)=>SephaScreen(),
       TimeScreen.routName:(context)=>TimeScreen(),
     RadioScreen.routName:(context)=>RadioScreen(),
+    // SuraScreen.routName:(context)=>SuraScreen(),
 
     
   },

@@ -9,7 +9,16 @@ abstract class TImages {
   static const String hadethBackground = 'assets/images/hadeth_background.png';
   static const String headerLogo = 'assets/images/header_logo.png';
   static const String quranBackground = 'assets/images/quran_background.png';
+    static const String radiobackground = 'assets/images/radio_background.png';
+
   static const String sephaBackground = 'assets/images/sepha_background.png';
   static const String splashScreen = 'assets/images/splash_screen.png';
   static const String souraImge = 'assets/images/elanbya.png';
+  static const String rightCornerGold = 'assets/images/right_corner_gold.png';
+  static const String leftCornerGold = 'assets/images/left_corner_gold.png';
+ static const String rightCornerBlack = 'assets/images/right_corner_black.png';
+static const String leftCornerBlack = 'assets/images/left_corner_black.png';
+static const String footHadeth='assets/images/Mosque.png';
+  static const String footer = 'assets/images/footer.png';
 }
+
