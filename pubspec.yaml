@@ -32,6 +32,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/json/Suras/
+    - assets/json/Hadeth/
 
   
 flutter_gen:

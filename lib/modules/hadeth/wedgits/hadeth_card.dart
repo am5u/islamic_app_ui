@@ -1,11 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:islamicapp_ui/core/constant/colors.dart';
 import 'package:islamicapp_ui/core/constant/images_string.dart';
 
-class HadethCard extends StatelessWidget {
-  const HadethCard({super.key, required this.hadethNumber, required this.content});
-  final String hadethNumber;
-  final String content;
+class HadethCard extends StatefulWidget {
+  const HadethCard({super.key, required this.hadethNumber});
+  final int hadethNumber;
+
+  @override
+  State<HadethCard> createState() => _HadethCardState();
+}
+
+class _HadethCardState extends State<HadethCard> {
+  String _fileContents = '';
+  @override
+  void initState() {
+    loadAsset();
+    super.initState();
+  }
+
+  Future<void> loadAsset() async {
+    String fileText = await rootBundle.loadString(
+      'assets/json/Hadeth/h${widget.hadethNumber}.txt',
+    );
+    setState(() {
+      _fileContents = fileText;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +51,7 @@ class HadethCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                 hadethNumber,
+                  "${widget.hadethNumber} الحديث ",
 
                   style: Theme.of(
                     context,
@@ -51,7 +72,7 @@ class HadethCard extends StatelessWidget {
               child: Container(
                 width: 266,
                 child: Text(
-                  content,
+                  _fileContents,
                   textAlign: TextAlign.center,
                   style: Theme.of(
                     context,
