@@ -1,47 +1,29 @@
-import 'package:etqan_acadmy/utils/theme/widget_themes/appbar_theme.dart';
-import 'package:etqan_acadmy/utils/theme/widget_themes/bottom_sheet_theme.dart';
-import 'package:etqan_acadmy/utils/theme/widget_themes/checkbox_theme.dart';
-import 'package:etqan_acadmy/utils/theme/widget_themes/elevated_button_theme.dart';
-import 'package:etqan_acadmy/utils/theme/widget_themes/text_field_theme.dart';
+
 import 'package:flutter/material.dart';
-import 'package:etqan_acadmy/utils/constants/colors.dart';
-import 'package:etqan_acadmy/utils/theme/widget_themes/text_theme.dart';
+
+import 'package:islamicapp_ui/core/constant/colors.dart';
+import 'package:islamicapp_ui/core/theme/wedgits_theme/bottom_sheet_theme.dart';
+import 'package:islamicapp_ui/core/theme/wedgits_theme/text_theme.dart';
 
 class TAppTheme {
   TAppTheme._();
   static ThemeData lightAppTheme = ThemeData(
  useMaterial3: true,
+ bottomNavigationBarTheme: BottomNavTheme.light,
+
  
- scaffoldBackgroundColor: TColors.light,
- fontFamily: 'Poppins',
- brightness: Brightness.light,
- primaryColor: TColors.primary,
+ 
+
+fontFamily:'Janna-LT' ,
+ primaryColor: TColors.primaryColor,
  textTheme:TTextTheme.lightTextThem,
-elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
-inputDecorationTheme: TTextFormFieldTheme.lightInputDecorationTheme,
-appBarTheme: TAppbarTheme.lightAppBarTheme,
-checkboxTheme: TCheckboxTheme.lightCheckboxTheme,
-bottomSheetTheme: TBottomSheetTheme.lightBottomSheetTheme
-
-
-
-
-
-
-  );
+ );
 
   static ThemeData darkAppTheme = ThemeData(
-     useMaterial3: true,
- scaffoldBackgroundColor: TColors.dark,
- fontFamily: 'Poppins',
- brightness: Brightness.dark,
- primaryColor: TColors.primary,
- textTheme:TTextTheme.darkTextThem,
- elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
- inputDecorationTheme: TTextFormFieldTheme.darkInputDecorationTheme,
- appBarTheme:  TAppbarTheme.darkAppBarTheme,
- checkboxTheme: TCheckboxTheme.darkCheckboxTheme,
- bottomSheetTheme:TBottomSheetTheme.darkBottomSheetTheme
+bottomNavigationBarTheme: BottomNavTheme.dark,
+ primaryColor: TColors.primaryColor,
+ textTheme:TTextTheme.lightTextThem,
+ fontFamily:'Janna-LT',
 
 
 

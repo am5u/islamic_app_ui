@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:etqan_acadmy/utils/constants/colors.dart';
+import 'package:islamicapp_ui/core/constant/colors.dart';
 
-class TBottomSheetTheme {
-  static BottomSheetThemeData lightBottomSheetTheme = BottomSheetThemeData(
-    showDragHandle: true,
-    backgroundColor: TColors.white,
-    modalBackgroundColor: TColors.white,
-    constraints: const BoxConstraints(minWidth: double.infinity),
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+class BottomNavTheme {
+  static BottomNavigationBarThemeData light = BottomNavigationBarThemeData(
+    backgroundColor: TColors.primaryColor,
+    selectedItemColor: Colors.white,
+    unselectedItemColor: Colors.black,
+    selectedIconTheme: IconThemeData(size: 28),
+    unselectedIconTheme: IconThemeData(size: 22),
+    showSelectedLabels: true,
+    showUnselectedLabels: false,
+    type: BottomNavigationBarType.fixed,
+    elevation: 10,
   );
 
-
-    static BottomSheetThemeData darkBottomSheetTheme = BottomSheetThemeData(
-    showDragHandle: true,
-    backgroundColor: TColors.black,
-    modalBackgroundColor: TColors.black,
-    constraints: const BoxConstraints(minWidth: double.infinity),
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+  static BottomNavigationBarThemeData dark = BottomNavigationBarThemeData(
+    backgroundColor: TColors.primaryColor,
+    selectedItemColor: Colors.white,
+    unselectedItemColor: Colors.white,
+    selectedIconTheme: IconThemeData(size: 28),
+    unselectedIconTheme: IconThemeData(size: 22),
+    showSelectedLabels: true,
+    showUnselectedLabels: false,
+    type: BottomNavigationBarType.fixed,
+    elevation: 10,
   );
 }

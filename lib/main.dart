@@ -1,7 +1,19 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:islamicapp_ui/core/constant/images_string.dart';
+import 'package:islamicapp_ui/core/theme/theme.dart';
+import 'package:islamicapp_ui/layout.dart';
+import 'package:islamicapp_ui/modules/hadeth/hadeth.dart';
+import 'package:islamicapp_ui/modules/quran/quran.dart';
+import 'package:islamicapp_ui/modules/radio/radio.dart';
+import 'package:islamicapp_ui/modules/sepha/sepha.dart';
+import 'package:islamicapp_ui/modules/splash/splash_screen.dart';
+import 'package:islamicapp_ui/modules/time/time.dart';
 
 void main() {
-  runApp(const MyApp());
+ 
+  
+  runApp(  const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -11,9 +23,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-     
-      home: const Text("dsdgsdg"),
+      theme:TAppTheme.lightAppTheme ,
+      
+      debugShowCheckedModeBanner: false,
+initialRoute: SplashScreen.routName,
+  routes: {
+    QuranScreen.routName : (context) =>QuranScreen(),
+    SplashScreen.routName : (context) =>SplashScreen(),
+    Layout.routName:(context)=> Layout(),
+    SephaScreen.routName:(context)=>SephaScreen(),
+      TimeScreen.routName:(context)=>TimeScreen(),
+    RadioScreen.routName:(context)=>RadioScreen(),
+
+    
+  },
     );
   }
 }
