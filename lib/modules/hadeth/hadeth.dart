@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:islamicapp_ui/core/constant/colors.dart';
 import 'package:islamicapp_ui/core/constant/images_string.dart';
 import 'package:islamicapp_ui/core/wedgits/containers/background_container.dart';
 import 'package:islamicapp_ui/modules/hadeth/wedgits/hadeth_list_slide.dart';

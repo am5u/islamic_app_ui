@@ -9,6 +9,8 @@ import 'package:islamicapp_ui/modules/time/time.dart';
 class Layout extends StatefulWidget {
   static const String routName = '/layout';
 
+  const Layout({super.key});
+
   @override
   State<Layout> createState() => _LayoutState();
 }

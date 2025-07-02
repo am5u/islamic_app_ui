@@ -1,42 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:islamicapp_ui/core/constant/colors.dart';
 import 'package:islamicapp_ui/core/constant/images_string.dart';
-import 'package:islamicapp_ui/modules/quran/suralist.dart';
 
-class SuraScreen extends StatefulWidget {
-  const SuraScreen({super.key, required this.Suranumber});
+class HadethDetails extends StatefulWidget {
+  const HadethDetails({super.key, required this.content, required this.hadethNumber,});
   static const String routName = "/sura";
-  final int Suranumber;
+  final String content;
+  final int hadethNumber;
 
   @override
-  State<SuraScreen> createState() => _SuraScreenState();
+  State<HadethDetails> createState() => _HadethDetailsState();
 }
 
-class _SuraScreenState extends State<SuraScreen> {
-  String _fileContents = '';
-  @override
-  void initState() {
-    loadAsset();
-    super.initState();
-  }
-
-  Future<void> loadAsset() async {
-    String fileText = await rootBundle.loadString('assets/json/Suras/${widget.Suranumber}.txt');
-    setState(() {
-      _fileContents = fileText;
-    });
-  }
-
+class _HadethDetailsState extends State<HadethDetails> {
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff202020),
       appBar: AppBar(
-        backgroundColor: Color(0xff202020),
+        backgroundColor: Color.fromRGBO(32, 32, 32, 1),
         title: Center(
           child: Text(
-            SuraList.englishQuranSurahs[ widget.Suranumber-1],
+             "Hadeth ${widget.hadethNumber}",
             style: Theme.of(
               context,
             ).textTheme.titleMedium!.apply(color: TColors.primaryColor),
@@ -67,8 +53,7 @@ class _SuraScreenState extends State<SuraScreen> {
                   ),
                 ),
                 Text(
-               SuraList.arabicAuranSuras[ widget.Suranumber-1],
-
+                   " ${widget.hadethNumber} الحديث",
                   style: Theme.of(
                     context,
                   ).textTheme.titleLarge!.apply(color: TColors.primaryColor),
@@ -86,7 +71,7 @@ class _SuraScreenState extends State<SuraScreen> {
       child: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
         child: Text(
-          _fileContents,
+          widget.content,
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.titleMedium!.apply(color: TColors.primaryColor),
         ),

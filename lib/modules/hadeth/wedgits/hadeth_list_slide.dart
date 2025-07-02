@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:islamicapp_ui/core/constant/colors.dart';
-import 'package:islamicapp_ui/core/constant/images_string.dart';
 import 'package:islamicapp_ui/modules/hadeth/wedgits/hadeth_card.dart';
 
 class HadethListSlider extends StatelessWidget {

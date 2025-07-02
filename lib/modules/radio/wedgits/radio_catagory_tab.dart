@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:islamicapp_ui/modules/radio/wedgits/radio_card.dart';
      class RabioCtagoryTab extends StatelessWidget{
+  const RabioCtagoryTab({super.key});
+
        @override
        Widget build(BuildContext context) {
-       return Container(
+       return SizedBox(
       height: 150,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),

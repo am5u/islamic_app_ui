@@ -3,6 +3,8 @@ import 'package:islamicapp_ui/core/constant/colors.dart';
 import 'package:islamicapp_ui/core/constant/images_string.dart';
 
 class SuraItemSlider extends StatelessWidget {
+  const SuraItemSlider({super.key});
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

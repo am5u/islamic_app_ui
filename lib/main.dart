@@ -1,11 +1,8 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:islamicapp_ui/core/constant/images_string.dart';
 import 'package:islamicapp_ui/core/theme/theme.dart';
 import 'package:islamicapp_ui/layout.dart';
-import 'package:islamicapp_ui/modules/hadeth/hadeth.dart';
+import 'package:islamicapp_ui/modules/onboarding/on_boarding.dart';
 import 'package:islamicapp_ui/modules/quran/quran.dart';
-import 'package:islamicapp_ui/modules/quran/sura/sura.dart';
 import 'package:islamicapp_ui/modules/radio/radio.dart';
 import 'package:islamicapp_ui/modules/sepha/sepha.dart';
 import 'package:islamicapp_ui/modules/splash/splash_screen.dart';
@@ -39,6 +36,7 @@ initialRoute: SplashScreen.routName,
     SephaScreen.routName:(context)=>SephaScreen(),
       TimeScreen.routName:(context)=>TimeScreen(),
     RadioScreen.routName:(context)=>RadioScreen(),
+    OnboardingScreen.routName:(context)=>OnboardingScreen()
     // SuraScreen.routName:(context)=>SuraScreen(),
 
     

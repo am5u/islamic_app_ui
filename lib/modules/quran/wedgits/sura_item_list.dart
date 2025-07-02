@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:islamicapp_ui/core/constant/colors.dart';
 import 'package:islamicapp_ui/core/constant/images_string.dart';
 import 'package:islamicapp_ui/modules/quran/sura/sura.dart';
-import 'package:islamicapp_ui/modules/quran/suralist.dart';
 
 class SuraItemList extends StatelessWidget {
   final String arabicName;

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:islamicapp_ui/core/constant/colors.dart';
 import 'package:islamicapp_ui/core/constant/images_string.dart';
 import 'package:islamicapp_ui/core/wedgits/containers/background_container.dart';
 import 'package:islamicapp_ui/modules/radio/wedgits/radio_catagory_tab.dart';
-import 'package:islamicapp_ui/modules/radio/wedgits/tabar.dart';
 
 class RadioScreen extends StatelessWidget {
   const RadioScreen({super.key});

@@ -8,7 +8,7 @@ class SuraListSprated extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 150,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),

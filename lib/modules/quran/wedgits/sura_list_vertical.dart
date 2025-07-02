@@ -3,6 +3,8 @@ import 'package:islamicapp_ui/modules/quran/suralist.dart';
 import 'package:islamicapp_ui/modules/quran/wedgits/sura_item_list.dart';
 
 class SuraListVertical extends StatelessWidget {
+  const SuraListVertical({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
