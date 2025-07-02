@@ -21,6 +21,7 @@ A modern Flutter application providing a beautiful Islamic experience, including
 
 ## 📱 Screenshots
 
+![Alt text](https://github.com/am5u/islamic_app_ui/blob/3737965f05591b868b12382092a22bc670fe54a1/islamic_ui.png)
 
 ---
 
