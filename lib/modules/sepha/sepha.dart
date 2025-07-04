@@ -34,45 +34,47 @@ class _SephaScreenState extends State<SephaScreen> {
             ),
           ),
 
-          Stack(
-            children: [
-              Image(image: AssetImage(TImages.sepha)),
-              Positioned(
-                bottom: 150,
-                left: 0,
-                right: 0,
-
-                child: GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      if (number == 30) {
-                        number = 0;
-                        if (i < doaa.length-1) {
-                          i++;
+          Expanded(
+            child: Stack(
+              children: [
+                Image(image: AssetImage(TImages.sepha)),
+                Positioned(
+                  bottom: 150,
+                  left: 0,
+                  right: 0,
+            
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (number == 30) {
+                          number = 0;
+                          if (i < doaa.length-1) {
+                            i++;
+                          } else {
+                            i = 0;
+                            
+                          }
                         } else {
-                          i = 0;
-                          
+                          number++;
                         }
-                      } else {
-                        number++;
-                      }
-                    });
-                  },
-                  child: Column(
-                    children: [
-                      Text(
-                        doaa[i],
-                        style: TextStyle(fontSize: 36, color: Colors.white),
-                      ),
-                      Text(
-                        "$number",
-                        style: TextStyle(fontSize: 36, color: Colors.white),
-                      ),
-                    ],
+                      });
+                    },
+                    child: Column(
+                      children: [
+                        Text(
+                          doaa[i],
+                          style: TextStyle(fontSize: 36, color: Colors.white),
+                        ),
+                        Text(
+                          "$number",
+                          style: TextStyle(fontSize: 36, color: Colors.white),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

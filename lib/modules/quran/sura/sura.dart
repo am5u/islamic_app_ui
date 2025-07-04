@@ -15,6 +15,7 @@ class SuraScreen extends StatefulWidget {
 
 class _SuraScreenState extends State<SuraScreen> {
   String _fileContents = '';
+
   @override
   void initState() {
     loadAsset();
@@ -22,7 +23,9 @@ class _SuraScreenState extends State<SuraScreen> {
   }
 
   Future<void> loadAsset() async {
-    String fileText = await rootBundle.loadString('assets/json/Suras/${widget.Suranumber}.txt');
+    String fileText = await rootBundle.loadString(
+      'assets/json/Suras/${widget.Suranumber}.txt',
+    );
     setState(() {
       _fileContents = fileText;
     });
@@ -36,7 +39,7 @@ class _SuraScreenState extends State<SuraScreen> {
         backgroundColor: Color(0xff202020),
         title: Center(
           child: Text(
-            SuraList.englishQuranSurahs[ widget.Suranumber-1],
+            SuraList.englishQuranSurahs[widget.Suranumber - 1],
             style: Theme.of(
               context,
             ).textTheme.titleMedium!.apply(color: TColors.primaryColor),
@@ -50,7 +53,6 @@ class _SuraScreenState extends State<SuraScreen> {
         ),
       ),
       body: Column(
-
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -67,7 +69,7 @@ class _SuraScreenState extends State<SuraScreen> {
                   ),
                 ),
                 Text(
-               SuraList.arabicAuranSuras[ widget.Suranumber-1],
+                  SuraList.arabicAuranSuras[widget.Suranumber - 1],
 
                   style: Theme.of(
                     context,
@@ -82,24 +84,53 @@ class _SuraScreenState extends State<SuraScreen> {
               ],
             ),
           ),
-              Expanded(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-        child: Text(
-          _fileContents,
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.titleMedium!.apply(color: TColors.primaryColor),
-        ),
-      ),
-    ),
-    SizedBox(height: 10,),
-    Container(
-        width: double.infinity,
-        height: 112,
-        color: Colors.black,
-        child: Image(image: AssetImage(TImages.footer))),
+
+          Expanded(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+              child:
+                  _fileContents.isEmpty
+                      ? const SizedBox.shrink()
+                      : Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children:
+                            _fileContents
+                                .trim()
+                                .split('\n')
+                                .asMap()
+                                .entries
+                                .map((entry) {
+                                  final index = entry.key;
+                                  final ayah = entry.value.trim();
+                                  if (ayah.isEmpty) {
+                                    return const SizedBox.shrink();
+                                  }
+                                  return Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 4.0,
+                                    ),
+                                    child: Text(
+                                      '$ayah (${index + 1})',
+                                      textAlign: TextAlign.center,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium!
+                                          .apply(color: TColors.primaryColor),
+                                    ),
+                                  );
+                                })
+                                .toList(),
+                      ),
+            ),
+          ),
+
+          Container(
+            width: double.infinity,
+            height: 112,
+            color: Colors.black,
+            child: Image(image: AssetImage(TImages.footer)),
+          ),
         ],
-        
       ),
     );
   }

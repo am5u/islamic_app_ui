@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:islamicapp_ui/core/theme/theme.dart';
 import 'package:islamicapp_ui/layout.dart';
@@ -13,9 +14,11 @@ void main() {
   
   runApp(  
 
-
+  DevicePreview(
+    builder:(context)=>
   
-    const MyApp()) ;
+  
+    const MyApp())) ;
 }
 
 class MyApp extends StatelessWidget {

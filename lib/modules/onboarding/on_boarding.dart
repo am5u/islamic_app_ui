@@ -96,7 +96,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   goToHome();
                 } else {
                   _controller.nextPage(
-                    duration: Duration(seconds: 1),
+                    duration: Duration(milliseconds: 100),
                     curve: Curves.easeInOut,
                   );
                 }

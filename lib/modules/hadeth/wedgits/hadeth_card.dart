@@ -13,7 +13,8 @@ class HadethCard extends StatefulWidget {
 }
 
 class _HadethCardState extends State<HadethCard> {
-  String _fileContents = '';
+  String _header = '';
+  String _body = '';
   @override
   void initState() {
     loadAsset();
@@ -24,8 +25,10 @@ class _HadethCardState extends State<HadethCard> {
     String fileText = await rootBundle.loadString(
       'assets/json/Hadeth/h${widget.hadethNumber}.txt',
     );
+    final lines = fileText.split('\n');
     setState(() {
-      _fileContents = fileText;
+      _header = lines.isNotEmpty ? lines.first : '';
+      _body = lines.length > 1 ? lines.sublist(1).join('\n') : '';
     });
   }
 
@@ -37,46 +40,63 @@ class _HadethCardState extends State<HadethCard> {
         borderRadius: BorderRadius.circular(20),
       ),
       child: GestureDetector(
-        onTap: () {        Navigator.push(context, MaterialPageRoute(builder: (context)=>HadethDetails(hadethNumber: widget.hadethNumber,content: _fileContents,)));
-},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder:
+                  (context) => HadethDetails(
+                    hadethNumber: widget.hadethNumber,
+                    content: '$_header\n$_body',
+                  ),
+            ),
+          );
+        },
         child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
                     width: 92,
                     height: 92,
-        
+
                     child: Image(
                       image: AssetImage(TImages.leftCornerBlack),
                       fit: BoxFit.cover,
                     ),
                   ),
-                  Text(
-                    "${widget.hadethNumber} الحديث ",
-        
-                    style: Theme.of(
-                      context,
-                    ).textTheme.titleLarge!.apply(color: TColors.textBlack),
-                  ),
+                Text(
+                _header,
+                textAlign: TextAlign.center,
+                style: Theme.of(
+                  context,
+                ).textTheme.titleLarge!.apply(color: TColors.textBlack),
+              ),
                   SizedBox(
                     width: 92,
                     height: 92,
-        
+
                     child: Image(image: AssetImage(TImages.rightCornerBlack)),
                   ),
                 ],
               ),
             ),
+            // Header text
+         
+            // Body in scroll view
             Expanded(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 8,
+                ),
                 child: SizedBox(
                   width: 266,
                   child: Text(
-                    _fileContents,
+                    _body,
                     textAlign: TextAlign.center,
                     style: Theme.of(
                       context,
@@ -85,7 +105,8 @@ class _HadethCardState extends State<HadethCard> {
                 ),
               ),
             ),
-        
+
+            // Text(
             Image(image: AssetImage(TImages.footHadeth)),
           ],
         ),

@@ -33,6 +33,7 @@ class OnBoardingContainer extends StatelessWidget {
           Text(
             description,
             style: Theme.of(context).textTheme.titleLarge!.apply(color: TColors.primaryColor,) ,
+            textAlign: TextAlign.center,
             )
         ],
       ),
