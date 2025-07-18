@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:islamicapp_ui/core/constant/colors.dart';
 import 'package:islamicapp_ui/core/constant/images_string.dart';
+import 'package:islamicapp_ui/modules/quran/sura/model/suradata.dart';
 import 'package:islamicapp_ui/modules/quran/suralist.dart';
 
 class SuraScreen extends StatefulWidget {
-  const SuraScreen({super.key, required this.Suranumber});
+  const SuraScreen({super.key,  required this.suraData});
   static const String routName = "/sura";
-  final int Suranumber;
+  final SuraData suraData;
 
   @override
   State<SuraScreen> createState() => _SuraScreenState();
@@ -24,7 +25,7 @@ class _SuraScreenState extends State<SuraScreen> {
 
   Future<void> loadAsset() async {
     String fileText = await rootBundle.loadString(
-      'assets/json/Suras/${widget.Suranumber}.txt',
+    widget.suraData.suraAyaFile,
     );
     setState(() {
       _fileContents = fileText;
@@ -39,7 +40,7 @@ class _SuraScreenState extends State<SuraScreen> {
         backgroundColor: Color(0xff202020),
         title: Center(
           child: Text(
-            SuraList.englishQuranSurahs[widget.Suranumber - 1],
+           widget.suraData.suraNameEnglish,
             style: Theme.of(
               context,
             ).textTheme.titleMedium!.apply(color: TColors.primaryColor),
@@ -69,7 +70,7 @@ class _SuraScreenState extends State<SuraScreen> {
                   ),
                 ),
                 Text(
-                  SuraList.arabicAuranSuras[widget.Suranumber - 1],
+                widget.suraData.suraNameArabic,
 
                   style: Theme.of(
                     context,

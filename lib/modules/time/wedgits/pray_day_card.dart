@@ -23,7 +23,6 @@ class _TPrayDayCardState extends State<TPrayDayCard> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Top Dates
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -67,7 +66,7 @@ class _TPrayDayCardState extends State<TPrayDayCard> {
             ),
             SizedBox(height: 20),
 
-            // Prayer Times
+
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(

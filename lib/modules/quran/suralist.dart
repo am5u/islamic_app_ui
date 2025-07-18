@@ -1,4 +1,6 @@
- abstract class SuraList {
+import 'package:islamicapp_ui/modules/quran/sura/model/suradata.dart';
+
+abstract class SuraList {
   static final List<String> arabicAuranSuras = [
     "الفاتحه",
     "البقرة",
@@ -347,4 +349,18 @@
     '5',
     '6',
   ];
+
+  static final List<SuraData> suraDataList = List.generate(
+    114,
+    (index) => SuraData(
+      (index + 1).toString(),
+      
+      suraNameArabic: arabicAuranSuras[index],
+      suraNameEnglish: englishQuranSurahs[index],
+      suraAyaFile: "assets/json/Suras/${index+1}.txt",
+      
+  
+      suraAyahsCount: AyaNumber[index],
+    ),
+  );
 }

@@ -1,26 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:islamicapp_ui/core/constant/colors.dart';
 import 'package:islamicapp_ui/core/constant/images_string.dart';
+import 'package:islamicapp_ui/modules/quran/sura/model/suradata.dart';
 import 'package:islamicapp_ui/modules/quran/sura/sura.dart';
 
 class SuraItemList extends StatelessWidget {
-  final String arabicName;
-  final String englishName;
-  final int suraNumber;
-  final String ayaCount;
+  final SuraData suraData;
 
-  const SuraItemList({
-    super.key,
-    required this.arabicName,
-    required this.englishName,
-    required this.suraNumber,
-    required this.ayaCount,
-  });
+  const SuraItemList({super.key, required this.suraData});
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>SuraScreen(Suranumber: suraNumber)));
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => SuraScreen(suraData: suraData,),
+          ),
+        );
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -34,7 +31,7 @@ class SuraItemList extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  "$suraNumber",
+                  "${suraData.suraId}",
                   style: Theme.of(
                     context,
                   ).textTheme.bodyLarge!.apply(color: TColors.textWhite),
@@ -47,13 +44,13 @@ class SuraItemList extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    englishName,
+                    suraData.suraNameEnglish,
                     style: Theme.of(
                       context,
                     ).textTheme.titleLarge!.apply(color: TColors.textWhite),
                   ),
                   Text(
-                    "${ayaCount}Verses",
+                    "${suraData.suraAyahsCount}Verses",
                     style: Theme.of(
                       context,
                     ).textTheme.titleSmall!.apply(color: TColors.textWhite),
@@ -63,7 +60,7 @@ class SuraItemList extends StatelessWidget {
             ),
             Spacer(),
             Text(
-              arabicName,
+              suraData.suraNameArabic,
               style: Theme.of(
                 context,
               ).textTheme.titleLarge!.apply(color: TColors.textWhite),
