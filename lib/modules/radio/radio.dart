@@ -23,15 +23,18 @@ class RadioScreen extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.2),
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: TabBar(
+                        indicatorSize: TabBarIndicatorSize.tab,
                         indicator: BoxDecoration(
-                          color: Colors.amber[200],
                           borderRadius: BorderRadius.circular(20),
+
+                          // 👈 Rounded corners
+                          color: Colors.amber,
                         ),
                         labelColor: Colors.black,
                         unselectedLabelColor: Colors.white,

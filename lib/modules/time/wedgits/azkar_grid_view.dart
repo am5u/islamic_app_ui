@@ -10,6 +10,7 @@ class AzkarGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: GridView.builder(
+        physics: NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemCount: 10,
         scrollDirection: Axis.vertical,

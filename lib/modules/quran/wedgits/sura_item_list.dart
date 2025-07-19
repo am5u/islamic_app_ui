@@ -2,23 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:islamicapp_ui/core/constant/colors.dart';
 import 'package:islamicapp_ui/core/constant/images_string.dart';
 import 'package:islamicapp_ui/modules/quran/sura/model/suradata.dart';
-import 'package:islamicapp_ui/modules/quran/sura/sura.dart';
 
 class SuraItemList extends StatelessWidget {
   final SuraData suraData;
+  final VoidCallback onSuratab;
 
-  const SuraItemList({super.key, required this.suraData});
+  const SuraItemList(
+      {super.key, required this.suraData, required this.onSuratab});
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => SuraScreen(suraData: suraData,),
-          ),
-        );
-      },
+      onTap: onSuratab,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Row(
@@ -31,7 +25,7 @@ class SuraItemList extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  "${suraData.suraId}",
+                  suraData.suraId,
                   style: Theme.of(
                     context,
                   ).textTheme.bodyLarge!.apply(color: TColors.textWhite),
