@@ -13,9 +13,10 @@ abstract class TImages {
   static const String timebackground = 'assets/images/time.png';
 
   static const String sephaBackground = 'assets/images/sepha_background.png';
+  static const String headOfSebha = "assets/images/headofsebha.png";
   static const String splashScreen = 'assets/images/splash_screen.png';
   static const String souraImge = 'assets/images/elanbya.png';
-  
+  static const String signleSephaCounter = 'assets/images/singlesepha.png';
 
   //  image asset
   static const String headerLogo = 'assets/images/header_logo.png';

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:islamicapp_ui/core/constant/images_string.dart';
 import 'package:islamicapp_ui/core/wedgits/containers/background_container.dart';
@@ -14,6 +16,7 @@ class _SephaScreenState extends State<SephaScreen> {
   int number = 0;
   int i = 0;
 
+  final int total = 30;
   List<String> doaa = ["لا اله الا الله ", "الله اكبر ", "الحمدلله"];
 
   @override
@@ -21,60 +24,94 @@ class _SephaScreenState extends State<SephaScreen> {
     return TBackgroundContainer(
       imageUrl: TImages.sephaBackground,
       child: Column(
-        spacing: 20,
         children: [
+          const SizedBox(height: 40),
           Image(image: AssetImage(TImages.headerLogo)),
 
-          Text(
-            "سبح باسم ربك الاعلى ",
+          const SizedBox(height: 10),
+          const Text(
+            "سبح باسم ربك الاعلى",
             style: TextStyle(
               fontStyle: FontStyle.normal,
               color: Colors.white,
-              fontSize: 36,
+              fontSize: 28,
             ),
           ),
 
-          Expanded(
-            child: Stack(
-              children: [
-                Image(image: AssetImage(TImages.sepha)),
-                Positioned(
-                  bottom: 150,
-                  left: 0,
-                  right: 0,
-            
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        if (number == 30) {
-                          number = 0;
-                          if (i < doaa.length-1) {
-                            i++;
-                          } else {
-                            i = 0;
-                            
-                          }
-                        } else {
-                          number++;
-                        }
-                      });
-                    },
-                    child: Column(
-                      children: [
-                        Text(
-                          doaa[i],
-                          style: TextStyle(fontSize: 36, color: Colors.white),
+          Column(
+            children: [
+              Container(
+                height: 100,
+                child: Image(image: AssetImage(TImages.headOfSebha)),
+              ),
+              Container(
+                width: 100,
+                height: 400,
+                child: Center(
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      // Circular ring of sepha images
+                      for (int j = 0; j < total; j++)
+                        Transform.rotate(
+                          angle: (2 * pi / total) * j,
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: Opacity(
+                              opacity: j < number ? 1.0 : 0.2,
+                              child: Image.asset(
+                                TImages.signleSephaCounter,
+                                width: 20,
+                                height: 20,
+                              ),
+                            ),
+                          ),
                         ),
-                        Text(
-                          "$number",
-                          style: TextStyle(fontSize: 36, color: Colors.white),
+
+                      // Center Doaa and Count
+                      Positioned(
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              if (number == total) {
+                                number = 0;
+                                if (i < doaa.length - 1) {
+                                  i++;
+                                } else {
+                                  i = 0;
+                                }
+                              } else {
+                                number++;
+                              }
+                            });
+                          },
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                doaa[i],
+                                style: const TextStyle(
+                                  fontSize: 28,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                "$number",
+                                style: const TextStyle(
+                                  fontSize: 36,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),

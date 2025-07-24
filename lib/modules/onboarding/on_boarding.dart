@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islamicapp_ui/core/constant/colors.dart';
 import 'package:islamicapp_ui/layout.dart';
 import 'package:islamicapp_ui/modules/onboarding/wedgits/on_boardong_header.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -91,8 +92,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             right: 20,
             child: TextButton(
               child: Text(isLastPage ? "Done" : "Next",style: TextStyle(color: TColors.primaryColor),),
-              onPressed: () {
+              onPressed: () async {
                 if (isLastPage) {
+                  final SharedPreferences prefs = await SharedPreferences
+                      .getInstance();
+                  prefs.setBool('isFirstTime', false);
+                  if (!mounted) return;
                   goToHome();
                 } else {
                   _controller.nextPage(

@@ -10,14 +10,18 @@ import 'package:islamicapp_ui/modules/splash/splash_screen.dart';
 import 'package:islamicapp_ui/modules/time/time.dart';
 
 Future<void> main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
+
+
   await LocalStorgeServices.init();
 
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+
+  const MyApp({super.key,});
 
   @override
   Widget build(BuildContext context) {
